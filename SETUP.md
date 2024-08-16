@@ -4,13 +4,17 @@ Staging repo for genscale (summer of reproducibility 2024)
 # Setup
 
 ## Infrastructure
-We recommend to use 3 machines with at least 16 cores and 32GB memory each. We have tested the artefacts on `ChameleonCloud @ TACC` using 3 `cascadelake_r` nodes.  
+We recommend to use 3 machines with at least 16 cores and 32GB memory each. We have tested the artefacts on *Chameleon@UC* using 3 *cascadelake_r* nodes.  
+
+**NOTE**: We only store the input dataset on Chameleon@UC's object store. Users working on other Chameleon sites might need to download the dataset from Google Drive (see Section **Setup Dataset**).
 
 ## K8s Cluster
 
 We consider 3 components as part of the k8s cluster setup: control plane, worker nodes, and shared storage (i.e. NFS). 
 At the moment we do not yet have a fully-automated solution for setting up the cluster. 
 We provide shell scripts for preparing each component, but it is recommended to read each script and copy-paste its content line by line (or block by block) instead of directly executing them. 
+
+We recommend to use UC site if working on ChameleonCloud.  
 
 Assuming we use ChameleonCloud and have 3 machines with name MACHINE-1, MACHINE-2, and MACHINE-3:
 
@@ -72,7 +76,14 @@ Then modify *spec.nfs.server* in `storage/2.nfs-pv.yaml` to use this value.
    1. `npm run build:watch`
    2. `npm run dev` (on a different terminal)
 
-## Setup Input Dataset (from chameleon object store):
+## Setup Input Dataset 
+
+We provide two ways to download the dataset: 1.) *Chameleon Object Store*, and 2.) *Google Drive*. 
+
+The objects are stored in Chameleon@UC site. 
+
+### Chameleon's Object Store 
+
 --> On MACHINE-1
 
 1. Setup Chameleon's OpenStack credentials 

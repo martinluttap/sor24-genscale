@@ -1,0 +1,40 @@
+name: workflow-fastqc
+k8s:
+  volume: nfs-pvc
+  root_mount_path: "/data"
+  volume_name: shared-volume
+workflowDataset:
+- var_name: SRR_150MB_1
+  absolute_path: "/data/data/SRR24039108_150MB_1.fastq"
+- var_name: SRR_150MB_2
+  absolute_path: "/data/data/SRR24039108_150MB_2.fastq"
+- var_name: SRR062641_1
+  absolute_path: "/data/data/SRR062641_1.filt.fastq.gz"
+- var_name: SRR062641_2
+  absolute_path: "/data/data/SRR062641_2.filt.fastq.gz"
+- var_name: index_GRCh38
+  absolute_path: "/data/data/GRCh38.d1.vd1.fa"
+- var_name: ref_dbsnp_144
+  absolute_path: "/data/data/dbsnp_144.hg38.vcf.gz"
+- var_name: bam_for_gatkbase
+  absolute_path: "/data/data/SRR062634_1500MB.bam"
+jobs:
+- name: fastqc-1500-srr062641-1
+  base_image: ghcr.io/martinluttap/fastqc:0.11.7
+  input:
+  - var_name: fastqc_in_SRR062641_1
+    job: 
+    path: "${SRR062641_1}"
+    type: file
+  output:
+  - var_name: fastqc_out_SRR062641_1
+    type: file
+    path_relative: SRR062641_1.filt_fastqc.zip
+  run_command:
+    command:
+    - "/bin/sh"
+    - "-c"
+    args:
+    - "/usr/local/bin/fastqc --dir . --format fastq --kmers 7 --noextract --outdir
+      ${JOB_OUT_DIR} --threads 96 ${fastqc_in_SRR062641_1}"
+  metrics_identifier: java
