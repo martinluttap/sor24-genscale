@@ -223,7 +223,7 @@ export const bwaWorkflowMin: WorkflowType = {
     jobs: [
         {
             name: 'burrows-wheeler-aligner-one',
-            base_image: 'infamousxd/bwa-0.7.15',
+            base_image: 'ghcr.io/martinluttap:bwa-0.7.15',
             input: [
                 {
                     var_name: 'workflow_input_one',
@@ -280,7 +280,7 @@ export const picardWf: WorkflowType = {
     jobs: [
         {
             name: 'picard-one',
-            base_image: 'infamousxd/picard-3.1.1',
+            base_image: 'ghcr.io/martinluttap:picard-3.1.1',
             input: [
                 {
                     var_name: 'workflow_input_one',
@@ -325,7 +325,7 @@ export const fastqc: WorkflowType = {
     jobs: [
         {
             name: 'fastqc-one',
-            base_image: 'infamousxd/fastqc-0.12.1',
+            base_image: 'ghcr.io/martinluttap:fastqc-0.12.1',
             input: [
                 {
                     var_name: 'workflow_input_one',
@@ -378,7 +378,7 @@ export const fullWorkflow1: WorkflowType = {
     jobs: [
         {
             name: 'fastqc-1500',
-            base_image: 'infamousxd/fastqc-0.12.1',
+            base_image: 'ghcr.io/martinluttap:fastqc-0.12.1',
             input: [
                 {
                     var_name: 'fastqc_in_SRR062641_2',
@@ -406,7 +406,7 @@ export const fullWorkflow1: WorkflowType = {
         },
         {
             name: 'fastq-cleaner-1500',
-            base_image: 'infamousxd/fastq-cleaner',
+            base_image: 'ghcr.io/martinluttap:fastq-cleaner',
             input: [
                 {
                     var_name: 'fastq-cleaner_in_SRR062641_1',
@@ -445,7 +445,7 @@ export const fullWorkflow1: WorkflowType = {
         },
         {
             name: 'burrows-wheeler-aligner',
-            base_image: 'infamousxd/bwa-0.7.15',
+            base_image: 'ghcr.io/martinluttap:bwa-0.7.15',
             input: [
                 {
                     var_name: 'bwa_input_one',
@@ -526,7 +526,7 @@ export const wkflw: WorkflowType = {
     "jobs": [
         {
             "name": "fastqc-1500-srr062641-1",
-            "base_image": "infamousxd/fastqc-0.12.1",
+            "base_image": "ghcr.io/martinluttap:fastqc-0.12.1",
             "input": [
                 {
                     "var_name": "fastqc_in_SRR062641_1",
@@ -555,7 +555,7 @@ export const wkflw: WorkflowType = {
         },
         {
             "name": "fastqc-1500-srr062641-2",
-            "base_image": "infamousxd/fastqc-0.12.1",
+            "base_image": "ghcr.io/martinluttap:fastqc-0.12.1",
             "input": [
                 {
                     "var_name": "fastqc_in_SRR062641_2",
@@ -584,7 +584,7 @@ export const wkflw: WorkflowType = {
         },
         {
             "name": "fastq-cleaner-1500-srr062641-1and2",
-            "base_image": "infamousxd/fastq-cleaner",
+            "base_image": "ghcr.io/martinluttap:fastq-cleaner",
             "input": [
                 {
                     "var_name": "fastq-cleaner_in_SRR062641_1",
@@ -624,7 +624,7 @@ export const wkflw: WorkflowType = {
         },
         {
             "name": "burrows-wheeler-aligner",
-            "base_image": "infamousxd/bwa-0.7.15",
+            "base_image": "ghcr.io/martinluttap:bwa-0.7.15",
             "input": [
                 {
                     "var_name": "bwa_input_one",
@@ -665,7 +665,7 @@ export const wkflw: WorkflowType = {
         },
         {
             "name": "picard-markduplicate",
-            "base_image": "infamousxd/picard-3.1.1",
+            "base_image": "ghcr.io/martinluttap:picard-3.1.1",
             "input": [
                 {
                     "var_name": "picard_in_bam",
@@ -694,7 +694,7 @@ export const wkflw: WorkflowType = {
         },
         {
             "name": "samtools-sort-markduplicate",
-            "base_image": "infamousxd/samtools-1.8",
+            "base_image": "ghcr.io/martinluttap:samtools-1.8",
             "input": [
                 {
                     "var_name": "samtools_in_bam",
@@ -723,7 +723,7 @@ export const wkflw: WorkflowType = {
         },
         {
             "name": "samtools-index-markduplicate",
-            "base_image": "infamousxd/samtools-1.8",
+            "base_image": "ghcr.io/martinluttap:samtools-1.8",
             "input": [
                 {
                     "var_name": "samtools_in_bam_index",
@@ -752,7 +752,7 @@ export const wkflw: WorkflowType = {
         },
         {
             "name": "gatk-base-recalibrator",
-            "base_image": "infamousxd/gatk-4.2.4.1",
+            "base_image": "ghcr.io/martinluttap:gatk-4.2.4.1",
             "input": [
                 {
                     "var_name": "gatkbase_in_grch38",
@@ -793,7 +793,7 @@ export const wkflw: WorkflowType = {
         },
         {
             "name": "gatk-apply-bqsr",
-            "base_image": "infamousxd/gatk-4.2.4.1",
+            "base_image": "ghcr.io/martinluttap:gatk-4.2.4.1",
             "input": [
                 {
                     "var_name": "gatkbqsr_in_bam",
@@ -828,7 +828,7 @@ export const wkflw: WorkflowType = {
         },
         {
             "name": "picard-validate-sam",
-            "base_image": "infamousxd/picard-3.1.1",
+            "base_image": "ghcr.io/martinluttap:picard-3.1.1",
             "input": [
                 {
                     "var_name": "picard_in_bqsr_bam",
@@ -857,7 +857,7 @@ export const wkflw: WorkflowType = {
         },
         {
             "name": "picard-collect-wgs-metrics",
-            "base_image": "infamousxd/picard-3.1.1",
+            "base_image": "ghcr.io/martinluttap:picard-3.1.1",
             "input": [
                 {
                     "var_name": "picardwgs_in_bqsr_bam",
@@ -892,7 +892,7 @@ export const wkflw: WorkflowType = {
         },
         //   {
         //     "name": "picard-collect-0xogmetrics",
-        //     "base_image": "infamousxd/picard-3.1.1",
+        //     "base_image": "ghcr.io/martinluttap:picard-3.1.1",
         //     "input": [
         //       {
         //         "var_name": "picard0xo_in_bqsr_bam",
@@ -965,7 +965,7 @@ export const gatk: WorkflowType = {
     jobs: [
         {
             "name": "gatk-base-recalibrator",
-            "base_image": "infamousxd/gatk-4.2.4.1",
+            "base_image": "ghcr.io/martinluttap:gatk-4.2.4.1",
             "input": [
                 {
                     "var_name": "gatkbase_in_grch38",
